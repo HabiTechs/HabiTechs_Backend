@@ -1,0 +1,28 @@
+// ==================================================================================
+// 📘 DOCUMENTACIÓN TÉCNICA BREVE: INFRAESTRUCTURA AZURE
+// ==================================================================================
+//
+// 1. RESOURCE GROUP (Grupo de Recursos)
+//    - Contenedor lógico principal. Agrupa todos los recursos del proyecto 
+//      (Frontend, Backend, BD) para gestión de vida y facturación unificada.
+//
+// 2. APP SERVICE PLAN (Plan de Alojamiento)
+//    - Define la infraestructura física subyacente (CPU, RAM, Región).
+//    - Determina el costo y la capacidad de escalado (Vertical/Horizontal).
+//
+// 3. AZURE APP SERVICE (Web App)
+//    - Servicio PaaS para alojar el Backend (.NET API).
+//    - Características clave: CI/CD slots, escalado automático y certificados SSL.
+//
+// 4. AZURE SQL DATABASE
+//    - Base de datos relacional gestionada (SQL Server en la nube).
+//    - Sin mantenimiento de servidor, con backups automáticos y alta disponibilidad.
+//
+// 5. KEY VAULT (Bóveda de Claves)
+//    - Seguridad centralizada. Almacena secretos (connection strings, API keys)
+//    - Evita exponer credenciales en el código fuente (appsettings.json).
+//
+// 6. APPLICATION INSIGHTS (Monitorización)
+//    - Telemetría en tiempo real. Detecta errores, latencia y uso del rendimiento.
+//
+// ==================================================================================
