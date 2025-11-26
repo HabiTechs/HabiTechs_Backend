@@ -1,0 +1,27 @@
+# -----------------------------------------------------------------------
+# 📄 DOCUMENTACIÓN TÉCNICA: CONFIGURACIÓN CORS
+# Tarea: 91-cors-policy-configuration
+# Proyecto: HabiTechs Backend
+# -----------------------------------------------------------------------
+
+1. OBJETIVO
+   Habilitar el mecanismo de seguridad del navegador para permitir que la 
+   aplicación Frontend (que corre en un puerto distinto) consuma la API.
+
+2. POLÍTICA DEFINIDA
+   - Nombre: "AllowHabiTechsFrontend" (o DefaultPolicy según implementación).
+   
+3. REGLAS APLICADAS
+   A. ORÍGENES PERMITIDOS (Origins)
+      - Desarrollo: "http://localhost:*" (Permite Flutter Web y debug).
+      - Producción: Se restringirá estrictamente al dominio final.
+
+   B. MÉTODOS Y CABECERAS
+      - Métodos: AllowAnyMethod (GET, POST, PUT, DELETE, OPTIONS).
+      - Headers: AllowAnyHeader (Necesario para pasar el token 'Authorization').
+
+4. IMPLEMENTACIÓN EN MIDDLEWARE
+   - Ubicación: Program.cs
+   - Orden Crítico: Se insertó `app.UseCors(...)` ANTES de 
+     `app.UseAuthentication()` y `app.UseAuthorization()` para evitar 
+     errores de "Preflight" (401/403).
