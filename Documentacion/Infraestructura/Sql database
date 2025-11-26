@@ -1,0 +1,14 @@
+## 🗄️ Implementación de Infraestructura de Datos (Azure SQL)
+
+Se ha completado el aprovisionamiento y configuración de la instancia **Azure SQL Database** que servirá como capa de persistencia para el sistema HabiTechs. La configuración se ha optimizado para balancear rendimiento y costo en el entorno de desarrollo.
+
+### 🛠 Detalles Técnicos del Despliegue:
+* **Servidor Lógico:** Creación del servidor SQL administrado en la región asignada al Resource Group.
+* **Base de Datos:** Configuración del tier de precios (DTU/vCore) adecuado para desarrollo, con *Collation* estándar `SQL_Latin1_General_CP1_CI_AS`.
+* **Seguridad de Red (Firewall):**
+    * Se habilitó la regla *"Allow Azure services and resources to access this server"* para permitir la conexión desde el App Service.
+    * Se agregó la IP del desarrollador actual para facilitar la gestión remota vía SSMS o Azure Data Studio.
+* **Gestión de Accesos:** Configuración de la cuenta de Administrador del servidor (credenciales seguras).
+
+### 🔗 Integración:
+La cadena de conexión (*Connection String*) ha sido generada y está lista para ser almacenada de forma segura en **Azure Key Vault** en la siguiente etapa.
