@@ -1,0 +1,28 @@
+# -----------------------------------------------------------------------
+# 📄 DOCUMENTACIÓN TÉCNICA: CONFIGURACIÓN SWAGGER / OPENAPI
+# Tarea: 88-swagger-configuration
+# Proyecto: HabiTechs Backend
+# -----------------------------------------------------------------------
+
+1. PAQUETE IMPLEMENTADO
+   - Librería: Swashbuckle.AspNetCore
+   - Versión: 6.x (compatible con .NET 8/9)
+
+2. CONFIGURACIÓN REALIZADA
+   A. UI INTERACTIVA
+      - Endpoint: /swagger/index.html
+      - Propósito: Pruebas manuales y exploración de endpoints sin Postman.
+
+   B. DOCUMENTACIÓN XML
+      - Se habilitó la lectura de archivos XML generados por el compilador.
+      - Resultado: Los comentarios "/// <summary>" del código ahora aparecen 
+        visibles en la interfaz web.
+
+   C. SEGURIDAD (JWT)
+      - Se agregó la definición de seguridad 'Bearer'.
+      - Habilita el botón "Authorize" en la UI para pegar el Token JWT y 
+        probar endpoints protegidos.
+
+3. USO
+   Solo disponible en entorno de Desarrollo (Environment.IsDevelopment()) 
+   para no exponer la estructura de la API en Producción.
