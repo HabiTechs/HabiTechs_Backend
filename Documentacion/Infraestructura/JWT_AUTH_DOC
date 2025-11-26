@@ -1,0 +1,29 @@
+# -----------------------------------------------------------------------
+# 📄 DOCUMENTACIÓN TÉCNICA: LÓGICA DE GENERACIÓN JWT
+# Tarea: 90-jwt-generation-logic
+# Proyecto: HabiTechs Backend
+# -----------------------------------------------------------------------
+
+1. LIBRERÍAS UTILIZADAS
+   - System.IdentityModel.Tokens.Jwt
+   - Microsoft.AspNetCore.Authentication.JwtBearer
+
+2. COMPONENTES IMPLEMENTADOS
+   A. ITOKENSERVICE (Interfaz)
+      - Contrato para desacoplar la lógica de generación.
+      - Método principal: CreateToken(User user).
+
+   B. TOKENSERVICE (Implementación)
+      - Algoritmo de Firma: HmacSha256.
+      - Claims Incluidos: NameId (ID usuario), Email, Role (Rol del sistema).
+      - Expiración: Configurable (ej. 7 días).
+
+   C. CONFIGURACIÓN (appsettings.json)
+      - Sección 'JwtSettings' requerida:
+        - Key: Clave secreta (mínimo 512 bits).
+        - Issuer: Emisor del token (nuestra API).
+        - Audience: Destinatario (Frontend).
+
+3. INTEGRACIÓN EN PROGRAM.CS
+   - Se registró el servicio en el contenedor de DI (Scoped/Transient).
+   - Se configuró el esquema de autenticación 'Bearer' por defecto.
