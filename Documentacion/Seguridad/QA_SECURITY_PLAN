@@ -1,0 +1,43 @@
+# 🛡️ PLAN DE ASEGURAMIENTO DE CALIDAD (QA) - SEGURIDAD INFORMÁTICA
+# Proyecto: HabiTechs (Backend .NET / Frontend Flutter)
+# Rama: 43-qa-02-pruebas-de-seguridad
+# Versión: 1.0
+
+## 1. OBJETIVO GENERAL
+Garantizar que la arquitectura del sistema mitigue las vulnerabilidades más comunes (OWASP Top 10) antes del despliegue en producción, asegurando la integridad y confidencialidad de los datos de la organización.
+
+## 2. ALCANCE (SCOPE)
+La investigación y pruebas se centran en dos vectores principales:
+* **Backend API (.NET Core):** Validación de endpoints, autenticación y acceso a datos.
+* **Frontend (Flutter):** Almacenamiento seguro local y ofuscación de código.
+
+## 3. METODOLOGÍA (ENFOQUE ÁGIL)
+Se utilizará una estrategia híbrida de análisis estático y dinámico simplificado:
+
+### A. Pruebas Estáticas (SAST) - Revisión de Código
+* **Gestión de Secretos:** Verificar que NO existan `ConnectionStrings`, `API Keys` o credenciales "hardcodeadas" en el repositorio (usar Azure Key Vault / Variables de Entorno).
+* **Dependencias:** Auditoría de paquetes NuGet y Pub.dev para detectar librerías con vulnerabilidades conocidas (`dotnet list package --vulnerable`).
+
+### B. Pruebas Dinámicas (DAST) - Ejecución
+* **Validación de Entradas:** Pruebas de envío de datos maliciosos (SQL Injection, XSS) en formularios de login y registro.
+* **Control de Acceso (RBAC):** Verificar que un usuario con rol "Estándar" no pueda acceder a endpoints de "Administrador".
+
+## 4. LISTA DE VERIFICACIÓN (CHECKLIST) DE SEGURIDAD
+
+### 🔒 Backend (.NET)
+- [ ] **Inyección SQL:** Uso estricto de Entity Framework (ORM) evitando consultas SQL crudas concatenadas.
+- [ ] **Autenticación:** Implementación correcta de JWT (JSON Web Tokens) con tiempo de expiración y firma segura.
+- [ ] **Manejo de Errores:** La API no debe devolver "Stack Traces" o detalles del servidor en errores 500 al cliente.
+- [ ] **HTTPS:** Redirección forzada de HTTP a HTTPS.
+
+### 📱 Frontend (Flutter)
+- [ ] **Almacenamiento Seguro:** Uso de `flutter_secure_storage` en lugar de `SharedPreferences` para guardar tokens.
+- [ ] **Ofuscación:** Configuración de compilación para ofuscar el código en release y dificultar la ingeniería inversa.
+- [ ] **Permisos:** El manifiesto (Android/iOS) solicita solo los permisos estrictamente necesarios.
+
+## 5. HERRAMIENTAS SUGERIDAS (OPEN SOURCE)
+1.  **SonarQube / SonarLint:** Para detección automática de "Code Smells" y brechas de seguridad en el IDE.
+2.  **OWASP ZAP (Opcional):** Para escaneo automatizado de vulnerabilidades en la API desplegada.
+
+---
+*Documento aprobado para la rama 43-qa-02.*
