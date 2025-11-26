@@ -1,0 +1,6 @@
+@HabiTechs_HostAddress = http://localhost:5026
+
+GET {{HabiTechs_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
