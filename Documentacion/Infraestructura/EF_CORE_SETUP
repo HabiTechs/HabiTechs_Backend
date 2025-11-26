@@ -1,0 +1,30 @@
+# -----------------------------------------------------------------------
+# 📄 DOCUMENTACIÓN TÉCNICA: SETUP ENTITY FRAMEWORK CORE
+# Tarea: 89-setup-entity-framework-core
+# Proyecto: HabiTechs Backend
+# -----------------------------------------------------------------------
+
+1. PAQUETES NUGET INSTALADOS
+   - Microsoft.EntityFrameworkCore.SqlServer: Proveedor para SQL Server.
+   - Microsoft.EntityFrameworkCore.Tools: Comandos para migraciones (Add-Migration).
+   - Microsoft.EntityFrameworkCore.Design: Necesario para el scaffolding.
+
+2. COMPONENTES CONFIGURADOS
+   A. DB CONTEXT
+      - Clase: ApplicationDbContext
+      - Ubicación: /Core/Data (o carpeta raíz de Data)
+      - Función: Puente principal entre el código C# y la base de datos.
+
+   B. CADENA DE CONEXIÓN
+      - Key: "DefaultConnection"
+      - Archivo: appsettings.json (Development)
+      - Nota: Configurada para usar LocalDB o SQL Express en desarrollo.
+
+   C. INYECCIÓN DE DEPENDENCIAS
+      - Archivo: Program.cs
+      - Método: builder.Services.AddDbContext<ApplicationDbContext>(...)
+      - Configuración: Uso de SQL Server con opciones por defecto.
+
+3. ESTADO ACTUAL
+   El proyecto está listo para crear la primera Entidad y ejecutar la 
+   migración inicial.
