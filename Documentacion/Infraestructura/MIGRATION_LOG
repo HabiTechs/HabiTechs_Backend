@@ -1,0 +1,26 @@
+# -----------------------------------------------------------------------
+# 📄 DOCUMENTACIÓN TÉCNICA: MIGRACIÓN INICIAL
+# Tarea: 92-initial-migration
+# Proyecto: HabiTechs Backend
+# -----------------------------------------------------------------------
+
+1. ACCIÓN REALIZADA
+   Se ejecutó el comando de Entity Framework para generar el primer 
+   snapshot del esquema de base de datos basado en los modelos actuales.
+
+2. COMANDOS EJECUTADOS
+   - Generación: dotnet ef migrations add InitialCreate
+   - Aplicación: dotnet ef database update
+
+3. RESULTADO TÉCNICO
+   A. ARCHIVOS GENERADOS
+      - Carpeta /Migrations creada con el archivo timestamp_InitialCreate.cs.
+      - Snapshot actual del contexto (ApplicationDbContextModelSnapshot.cs).
+
+   B. BASE DE DATOS
+      - Se creó la tabla de control '__EFMigrationsHistory'.
+      - Se validó exitosamente la conexión con SQL Server (Local/Azure) 
+        definida en 'DefaultConnection'.
+
+4. ESTADO
+   El esquema físico (Tablas/Columnas) está sincronizado con el código C#.
