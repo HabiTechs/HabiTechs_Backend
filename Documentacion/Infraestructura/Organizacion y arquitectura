@@ -1,0 +1,34 @@
+# -----------------------------------------------------------------------
+# 📂 DOCUMENTACIÓN: ESTRUCTURA DE CARPETAS Y ORGANIZACIÓN
+# Tarea: chore(struct): folder organization
+# Proyecto: HabiTechs
+# -----------------------------------------------------------------------
+
+1. PRINCIPIO DE DISEÑO
+   Se utiliza una arquitectura limpia y modular para desacoplar la lógica 
+   de negocio de la infraestructura y la interfaz de usuario.
+
+2. ESTRUCTURA BACKEND (.NET)
+   /HabiTechs.Backend
+   ├── /Core           -> (El "Qué") Entidades, Interfaces y Modelos de Dominio. 
+   │                      No depende de nada externo.
+   ├── /Modules        -> (El "Cómo") Lógica de negocio (Casos de uso) 
+   │                      organizada por funcionalidad (Auth, Reportes, etc.).
+   ├── /Services       -> (Infraestructura) Implementación de interfaces externas 
+   │                      (SQL, Email, Storage, APIs de terceros).
+   ├── /Documentacion  -> Archivos .md y .txt con guías y planes.
+   └── /Controllers    -> Puntos de entrada de la API (Endpoints).
+
+3. ESTRUCTURA FRONTEND (Flutter)
+   /lib
+   ├── /core           -> Utilidades compartidas (Colores, Temas, Cliente HTTP,
+   │                      Widgets genéricos como botones/inputs).
+   ├── /features       -> Organización vertical por funcionalidad.
+   │   ├── /auth       -> (Login, Registro, Bloc/Provider, Pantallas).
+   │   └── /dashboard  -> (Home, Gráficos, Lógica de visualización).
+   └── /main.dart      -> Punto de entrada y configuración de rutas.
+
+4. REGLAS DE ORO
+   - Nombres de carpetas: Siempre en inglés o español (consistente), PascalCase 
+     en .NET, snake_case en Flutter.
+   - Dependencias: 'Core' nunca debe depender de 'Services'.
