@@ -1,0 +1,34 @@
+# -----------------------------------------------------------------------
+# 📄 DOCUMENTACIÓN TÉCNICA: AZURE RESOURCE GROUP (GRUPO DE RECURSOS)
+# Tarea: feat(infra): create resource group
+# Proyecto: HabiTechs
+# -----------------------------------------------------------------------
+
+1. DEFINICIÓN
+   Es un contenedor lógico que agrupa los recursos de Azure relacionados con 
+   la solución (App Service, SQL Database, Key Vault, Storage) para 
+   gestionarlos como una única entidad de ciclo de vida.
+
+2. CARACTERÍSTICAS ESENCIALES
+
+   A. CICLO DE VIDA UNIFICADO
+      - Gestión en bloque: Permite desplegar, actualizar y eliminar todos 
+        los recursos al mismo tiempo. 
+      - Limpieza rápida: Al eliminar el Grupo de Recursos, se eliminan 
+        automáticamente todos los servicios contenidos (vital para evitar 
+        costos fantasmas en entornos de prueba).
+
+   B. CONTROL DE ACCESO (RBAC)
+      - Herencia de permisos: Los roles asignados al Grupo (ej. "Owner" o 
+        "Reader") se heredan automáticamente a todos los recursos internos.
+      - Seguridad: Facilita segregar quién toca "Producción" vs "Desarrollo".
+
+   C. SEGREGACIÓN DE COSTOS
+      - Facturación clara: Permite filtrar en el Cost Management de Azure 
+        cuánto cuesta específicamente el proyecto "HabiTechs", separándolo 
+        de otros proyectos de la organización.
+
+   D. ALCANCE DE METADATOS
+      - El Resource Group almacena metadatos sobre los recursos. Por ello, 
+        se le debe asignar una región (ej. East US 2), aunque los recursos 
+        dentro puedan estar en otras regiones.
