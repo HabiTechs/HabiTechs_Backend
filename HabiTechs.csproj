@@ -30,4 +30,13 @@
       </Content>
     </ItemGroup>
 
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="HabiTechs_Frontend\habitechs\assets\animations\loading.json" />
+      <_ContentIncludedByDefault Remove="HabiTechs_Frontend\habitechs\assets\animations\login_building.json" />
+      <_ContentIncludedByDefault Remove="HabiTechs_Frontend\habitechs\ios\Runner\Assets.xcassets\AppIcon.appiconset\Contents.json" />
+      <_ContentIncludedByDefault Remove="HabiTechs_Frontend\habitechs\ios\Runner\Assets.xcassets\LaunchImage.imageset\Contents.json" />
+      <_ContentIncludedByDefault Remove="HabiTechs_Frontend\habitechs\macos\Runner\Assets.xcassets\AppIcon.appiconset\Contents.json" />
+      <_ContentIncludedByDefault Remove="HabiTechs_Frontend\habitechs\web\manifest.json" />
+    </ItemGroup>
+
 </Project>
